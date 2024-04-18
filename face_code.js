@@ -14,14 +14,18 @@
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
 function Apple(tilt_value, eye_value, mouth_value) {
-  const bg_color3 = [255, 255, 255];
+  const white = [255, 255, 255];
   const fg_color3 = [0, 0, 0];
+  const appleColour = [217, 2, 2];
+  const appleTopLipColour = [143, 1, 1];
+  const appleBottomLipColour = [252, 3, 32];
 
   let headSize = 20;
-  let eyeSize = 5;
+  let eyeSize = 4;
+  let PupilSize = int(eyeSize/1.5);
   let centerX = 0;
-  let Iy = -4
-  let distactBetweenEyes = 5
+  let Iy = -2;
+  let DistanceBetweenEyes = 5
   let MouthDrop = 7
   
   // rotation in degrees
@@ -30,11 +34,12 @@ function Apple(tilt_value, eye_value, mouth_value) {
 
  // apple
   noStroke();
-  fill(fg_color3);
+  fill(appleColour);
   ellipse(centerX-2.5, 0, 10,15);
   ellipse(centerX+2.5, 0, 10,15);
 
   //stem
+  fill(fg_color3);
   beginShape();
   vertex(0, -6);
   vertex(-2, -10);
@@ -43,27 +48,94 @@ function Apple(tilt_value, eye_value, mouth_value) {
 
 
 
-  // 2 traditonal eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color3);
-    //ellipse(centerX, Iy, eyeSize-1,eyeSize);
+  // middle eye
+  if (eye_value === 1 ) {
+    //stroke(0,0,0);
+    fill(white);
+    ellipse(centerX, Iy-1, 10,eyeSize);
 
-    beginShape();
-    curveVertex(-10, 0);
-    curveVertex(0,0);
-    endShape(CLOSE);
-   
+    fill(fg_color3);
+    ellipse(centerX,Iy-1,eyeSize);
+
+    fill(white);
+    ellipse(centerX,Iy-1,PupilSize);   
   }
-// // middle eye
-//   if (eye_value >= 2) {
-//     fill(bg_color3);
-//     ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
-//     ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
-//   }
 
+// // two eyes
+  if (eye_value === 2) {
+    //stroke(0,0,0);
+    fill(white);
+    // eye shape
+    ellipse(centerX - DistanceBetweenEyes, Iy,10, eyeSize);
+    ellipse(centerX + DistanceBetweenEyes, Iy, 10, eyeSize);
+
+    // irises
+    fill(fg_color3);
+    ellipse(centerX-DistanceBetweenEyes, Iy, eyeSize);
+    ellipse(centerX+ DistanceBetweenEyes, Iy, eyeSize);
+
+    //pupils
+    noStroke();
+    fill(white);
+    ellipse(centerX-DistanceBetweenEyes, Iy, PupilSize);
+    ellipse(centerX+DistanceBetweenEyes, Iy, PupilSize);
+
+  }
+
+  if (eye_value === 3){
+
+    // middle eye
+    fill(white);
+    ellipse(centerX, Iy-2, 10,eyeSize);
+
+    fill(fg_color3);
+    ellipse(centerX,Iy-2,eyeSize);
+
+    fill(white);
+    ellipse(centerX,Iy-2,PupilSize);   
+
+    //two eyes
+
+      // eye shape
+      ellipse(centerX - DistanceBetweenEyes, Iy+2,10, eyeSize);
+      ellipse(centerX + DistanceBetweenEyes, Iy+2, 10, eyeSize);
+  
+      // irises
+      fill(fg_color3);
+      ellipse(centerX-DistanceBetweenEyes, Iy+2, eyeSize);
+      ellipse(centerX+ DistanceBetweenEyes, Iy+2, eyeSize);
+  
+      //pupils
+      noStroke();
+      fill(white);
+      ellipse(centerX-DistanceBetweenEyes, Iy+2, PupilSize);
+      ellipse(centerX+DistanceBetweenEyes, Iy+2, PupilSize);
+
+
+
+  }
 //   // mouth
-//   fill(bg_color3);
-//   ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
+
+   fill(appleTopLipColour);
+
+   beginShape();
+   vertex(0,1);
+   vertex(1,0);
+   vertex(5,3);
+   vertex(-5,3);
+   vertex(-1,0);
+   endShape(CLOSE);
+
+   fill(appleBottomLipColour);
+
+   beginShape();
+   vertex(5,3);
+   vertex(2,5);
+   vertex(-2,5);
+   vertex(-5,3);
+   endShape(CLOSE);
+
+   line(5,3,-5,3);
 
 }
 
