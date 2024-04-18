@@ -13,11 +13,11 @@
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
-function orangeAlienFace(tilt_value, eye_value, mouth_value) {
-  const bg_color3 = [71, 222, 219];
-  const fg_color3 = [255, 93, 35];
+function Apple(tilt_value, eye_value, mouth_value) {
+  const bg_color3 = [255, 255, 255];
+  const fg_color3 = [0, 0, 0];
 
-  let headSize = 20
+  let headSize = 20;
   let eyeSize = 5;
   let centerX = 0;
   let Iy = -4
@@ -28,31 +28,47 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value) {
   angleMode(DEGREES);
   rotate(tilt_value);
 
- // head
+ // apple
   noStroke();
   fill(fg_color3);
-  ellipse(centerX, 0, headSize, headSize);
+  ellipse(centerX-2.5, 0, 10,15);
+  ellipse(centerX+2.5, 0, 10,15);
+
+  //stem
+  beginShape();
+  vertex(0, -6);
+  vertex(-2, -10);
+  vertex(0, -9.5);
+  endShape(CLOSE);
+
+
 
   // 2 traditonal eyes
   if (eye_value === 1 || eye_value == 3) {
     fill(bg_color3);
-    ellipse(centerX, Iy, eyeSize-1,eyeSize);
+    //ellipse(centerX, Iy, eyeSize-1,eyeSize);
+
+    beginShape();
+    curveVertex(-10, 0);
+    curveVertex(0,0);
+    endShape(CLOSE);
    
   }
-// middle eye
-  if (eye_value >= 2) {
-    fill(bg_color3);
-    ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
-    ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
-  }
+// // middle eye
+//   if (eye_value >= 2) {
+//     fill(bg_color3);
+//     ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
+//     ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
+//   }
 
-  // mouth
-  fill(bg_color3);
-  ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
+//   // mouth
+//   fill(bg_color3);
+//   ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
+
 }
 
 
-function simplePurpleFace() {
+function Banana() {
   fill(234, 122, 244);
   noStroke();
   // head
@@ -66,7 +82,7 @@ function simplePurpleFace() {
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
-function blockyFace(thinness_value) {
+function Pear(thinness_value) {
   // head
   noStroke();
   fill(134, 19, 136);

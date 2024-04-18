@@ -65,7 +65,7 @@ function draw () {
         push();
         translate(x, y);
         scale(w/25, h/25);
-        orangeAlienFace(tilt_value, eye_value, mouth_value);
+        Apple(tilt_value, eye_value, mouth_value);
         pop();
       }
       else if (i > 0) {
@@ -74,11 +74,11 @@ function draw () {
         translate(x, y);
         scale(w/25, h/25);
         if((i+j)%2 == 0) {
-          simplePurpleFace();
+          Banana();
         }
         else {
           thinness_value = random(0, 100);
-          blockyFace(thinness_value);
+          Pear(thinness_value);
         }
         pop();
       }

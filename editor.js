@@ -4,7 +4,7 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
-const bg_color = [71, 222, 219];
+const bg_color = [255, 255, 255];
 let slider1, slider2, slider3, slider4, slider5;
 let slider6, slider7, slider8, slider9, slider10;
 let faceSelector;
@@ -88,15 +88,15 @@ function draw () {
    let tilt_value = map(s1, 0, 100, -90, 90);
    let mouth_value = map(s2, 0, 100, 0.5, 10);
    let eye_value = int(map(s3, 0, 100, 1, 3));
-   orangeAlienFace(tilt_value, eye_value, mouth_value);
+   Apple(tilt_value, eye_value, mouth_value);
   }
 
   if (mode == '2') {
      // let slider value 1 indicate thinness
-     blockyFace(s1);
+     Pear(s1);
   }
   if (mode == '3') {
-    simplePurpleFace();
+    Banana();
   }
 
   pop();
