@@ -3,4 +3,4 @@
 
 My initial idea is a variety of different fruits, that have interchanging facial features. I want them to look annoying-orange-esque, maybe encorporating real images of human features or maybe just drawing them on javascript. I am also considering images of my own drawings of eyes. 
 
-
+I started by creating the apple in the editor, playing around with the eyes and mouth positioning. The apple has three eye values, where it has between 1-3 eyes. 

@@ -43,7 +43,7 @@ function draw () {
 
   // clear screen
   background(bg_color1);
-  noStroke();
+  //noStroke();
 
   // draw a 7x4 grid of faces
   let w = canvasWidth / 7;

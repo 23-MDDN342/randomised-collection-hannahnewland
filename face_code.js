@@ -140,36 +140,95 @@ function Apple(tilt_value, eye_value, mouth_value) {
 }
 
 
-function Grapes() {
-  ellipseMode(CENTER);
+function Grapes(eye_value, mouth_value, thinness_value) {
+
+  const grapeColour1 = [105, 78, 191]; // light purple
+  const grapeColour2 = [52, 26, 138]; // dark purple
+  const grapeColour3 = [166,58,174]; //light pink
+  const grapeColour4 = [23,21,71]; // dark blue
+  const grapeColour5 = [109,38,90]; //dark pink
   
-  fill(105, 78, 191);
+
+  let grapeColours = [grapeColour1, grapeColour2,grapeColour3,grapeColour4,grapeColour5];
+  ellipseMode(CENTER);
+
+  // fill(random(grapeColours));
   
   //noStroke();
   // grapes
 
+  
+
   // top row of grapes
+  push();
+  fill(random(grapeColours));
   ellipse(-4,-7,5); // left grape
+  pop();
+
+  push();
+  fill(random(grapeColours));
   ellipse(4,-7,5); // right grape
+  pop();
+
+  push();
+  fill(random(grapeColours));
   ellipse(0,-7,5.5); // middle grape
+  pop();
+
   
   // second from top row of grapes
+  push();
+  fill(random(grapeColours));
   ellipse(-5, -4, 5); // left grape
+  pop();
+
+  push();
+  fill(random(grapeColours));
   ellipse(5,-4, 5); // right grape
+  pop();
+
+  push();
+  fill(random(grapeColours));
   ellipse(-2,-4, 6); // middle left grape
+  pop();
+
+  push();
+  fill(random(grapeColours));
   ellipse(2,-4, 6); // middle right grape
+  pop();
 
   //bottom grape
+  push();
+  fill(random(grapeColours));
   ellipse(0,7,5);
+  pop();
   
   //second from bottom row of grapes
+  push();
+  fill(random(grapeColours));
   ellipse(2,4,5); // right grape
+  pop();
+
+  push();
+  fill(random(grapeColours));
   ellipse(-2,4,5); // left grape
+  pop();
 
   // middle row of grapes
+  push();
+  fill(random(grapeColours));
   ellipse(-4,0,5); // left grape
+  pop();
+
+  push();
+  fill(random(grapeColours));
   ellipse(4,0,5); // right grape
+  pop();
+
+  push();
+  fill(random(grapeColours));
   ellipse(0,0,5.5); // middle grape
+  pop();
 
  
 
