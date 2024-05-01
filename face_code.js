@@ -140,15 +140,40 @@ function Apple(tilt_value, eye_value, mouth_value) {
 }
 
 
-function Banana() {
-  fill(234, 122, 244);
-  noStroke();
-  // head
-  ellipse(0, 0, 20);
-  // eyes
-  fill(255, 217, 114);
-  ellipse(-3, -3, 3);
-  ellipse( 3, -3, 3);
+function Grapes() {
+  ellipseMode(CENTER);
+  
+  fill(105, 78, 191);
+  
+  //noStroke();
+  // grapes
+
+  // top row of grapes
+  ellipse(-4,-7,5); // left grape
+  ellipse(4,-7,5); // right grape
+  ellipse(0,-7,5.5); // middle grape
+  
+  // second from top row of grapes
+  ellipse(-5, -4, 5); // left grape
+  ellipse(5,-4, 5); // right grape
+  ellipse(-2,-4, 6); // middle left grape
+  ellipse(2,-4, 6); // middle right grape
+
+  //bottom grape
+  ellipse(0,7,5);
+  
+  //second from bottom row of grapes
+  ellipse(2,4,5); // right grape
+  ellipse(-2,4,5); // left grape
+
+  // middle row of grapes
+  ellipse(-4,0,5); // left grape
+  ellipse(4,0,5); // right grape
+  ellipse(0,0,5.5); // middle grape
+
+ 
+
+
 }
 
 /*
