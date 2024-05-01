@@ -71,6 +71,8 @@ function draw () {
         
         Apple(tilt_value, eye_value, mouth_value);
         pop();
+
+        Grapes( eye_value, eye_type);
       
     }
   }

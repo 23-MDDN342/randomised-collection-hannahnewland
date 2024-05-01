@@ -4,7 +4,7 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
-const bg_color = [71, 222, 219];
+const bg_color = [0];
 let slider1, slider2, slider3, slider4, slider5;
 let slider6, slider7, slider8, slider9, slider10;
 let faceSelector;
@@ -53,17 +53,17 @@ function setup () {
 
 
 function draw () {
-  strokeWeight();
+ noStroke();
 
   let mode = faceSelector.value();
 
   background(bg_color);
 
-  let s1 = slider1.value();
-  let s2 = slider2.value();
-  let s3 = slider3.value();
-  let s4 = slider4.value();
-  let s5 = slider5.value();
+  let s1 = slider1.value(); 
+  let s2 = slider2.value(); // type of eyes
+  let s3 = slider3.value(); // number of eyes
+  let s4 = slider4.value(); // type of mouth
+  let s5 = slider5.value(); // type of nose 
   let s6 = slider6.value();
   let s7 = slider7.value();
   let s8 = slider8.value();
@@ -85,11 +85,13 @@ function draw () {
   push();
   if (mode == '1') {
    // draw face using values mapped from 3 sliders
-  //  let tilt_value = map(s1, 0, 100, -90, 90);
-  //  let mouth_value = map(s2, 0, 100, 0.5, 10);
+   let tilt_value = map(s1, 0, 100, -90, 90);
+   let mouth_type = int(map(s4, 0, 100, 1,4));
+   let nose_type = int(map( s5, 0, 100, 1, 4));
   let eye_value = int(map(s3, 0, 100, 1, 3));
-  //  Apple(tilt_value, eye_value, mouth_value);
-  Grapes();
+  let eye_type = int(map(s2, 0, 100, 1,4));
+  //Apple(tilt_value, eye_value,mouth_type);
+  Grapes(eye_value, eye_type,mouth_type, nose_type);
   }
 
   if (mode == '2') {
@@ -97,7 +99,10 @@ function draw () {
      Pear(s1);
   }
   if (mode == '3') {
-    Grapes();
+     eye_value = int(map(s3, 0, 100, 1, 3));
+     eye_type = int(map(s2, 0, 100, 1,4));
+     mouth_type = int(map(s4, 0, 100, 1,4));
+    Grapes(eye_value, eye_type,mouth_type);
   }
 
   pop();
