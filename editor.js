@@ -90,8 +90,8 @@ function draw () {
    let nose_type = int(map( s5, 0, 100, 1, 4));
   let eye_value = int(map(s3, 0, 100, 1, 3));
   let eye_type = int(map(s2, 0, 100, 1,4));
-  //Apple(tilt_value, eye_value,mouth_type);
-  Grapes(eye_value, eye_type,mouth_type, nose_type);
+  Apple(tilt_value, eye_value,mouth_type, nose_type);
+  //Grapes(eye_value, eye_type,mouth_type, nose_type);
   }
 
   if (mode == '2') {

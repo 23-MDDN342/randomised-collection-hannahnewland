@@ -20,7 +20,7 @@ const appleColour = [217, 2, 2];
 const appleTopLipColour = [143, 1, 1];
 const appleBottomLipColour = [252, 3, 32];
 
-function Apple(tilt_value, eye_value, mouth_type) {
+function Apple(tilt_value, eye_value, mouth_type, nose_type) {
  
   let eyeSize = 4;
   let PupilSize = int(eyeSize/1.5);
@@ -46,6 +46,10 @@ function Apple(tilt_value, eye_value, mouth_type) {
   vertex(-2, -10);
   vertex(0, -9.5);
   endShape(CLOSE);
+
+
+
+  
 
 
 
@@ -102,7 +106,7 @@ function Apple(tilt_value, eye_value, mouth_type) {
       ellipse(centerX + DistanceBetweenEyes, Iy+2, 10, eyeSize);
   
       // irises
-      fill(fg_color3);
+      fill(black);
       ellipse(centerX-DistanceBetweenEyes, Iy+2, eyeSize);
       ellipse(centerX+ DistanceBetweenEyes, Iy+2, eyeSize);
   
@@ -142,6 +146,7 @@ function Apple(tilt_value, eye_value, mouth_type) {
    line(5,3,-5,3);
   }
 
+ 
 }
 
 
@@ -300,21 +305,41 @@ function Grapes( eye_value, eye_type,mouth_type, nose_type) {
 
   if (mouth_type === 2){
     noFill();
+    
     stroke(black);
     curve(4,-3,2,5,-2,5,-4,-3);
 
   }
 
-  if (nose_type === 2){
+  if (nose_type ===1){ // clown nose
+
+    noStroke();
+    fill(138, 3, 3);
+    ellipse(0,3.5,3);
+
+
+  } else if (nose_type === 2){ // basic line triangle nose
 
     strokeWeight(0.5);
     stroke(black);
-    line (1, 0, 1.5, 3);
-    line (1.5,3,0,3);
+    line (0, 2, 1, 4);
+    line (1,4,0,4);
 
-  }
+  } else if (nose_type === 3){ // piggy nose
 
-  
+    noStroke();
+    push();
+    fill(237, 159, 223);
+    ellipse(0,3.5,4,3);
+    pop();
+
+    push();
+    fill(black);
+    ellipse(1,3.5,1,1.5);
+    ellipse(-1,3.5,1,1.5);
+
+}
+
 }
 
 /*
