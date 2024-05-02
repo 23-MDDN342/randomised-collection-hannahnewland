@@ -20,8 +20,8 @@ const appleBottomLipColour = [252, 3, 32];
 const stemColour = [52,88,57];
 
 
-function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
- 
+function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebrow_height, eyebrow_length) {
+ push()
   let eyeSize = 4;
   let PupilSize = int(eyeSize/1.5);
   let centerX = 0;
@@ -48,7 +48,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
   endShape(CLOSE);
 
   // one eye
-  if (eye_value === 1 && eye_type ===1 ) { // originally apple eyes, short and wide
+  if (eye_value == 1 && eye_type ==1 ) { // originally apple eyes, short and wide
   
     fill(white);
     ellipse(centerX, Iy-1, 10,eyeSize);
@@ -59,7 +59,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
     fill(white);
     ellipse(centerX,Iy-1,PupilSize);  
 
-  } else if (eye_value === 1 && eye_type ===2){ // originally grape eyes, small and round
+  } else if (eye_value == 1 && eye_type ==2){ // originally grape eyes, small and round
    
     //whites of eye
     push();
@@ -77,7 +77,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
 
    pop();
 
-   } else if (eye_value === 1 && eye_type === 3){ // originally pear eyes, thin and long
+   } else if (eye_value == 1 && eye_type == 3){ // originally pear eyes, thin and long
 
     push();
     translate(0,-1);
@@ -92,7 +92,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
    }
 
  // two eyes
-  if (eye_value === 2 && eye_type ===1) {
+  if (eye_value == 2 && eye_type ==1) {
 
     fill(white);
     // eye shape
@@ -110,7 +110,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
     ellipse(centerX-DistanceBetweenEyes, Iy, PupilSize);
     ellipse(centerX+DistanceBetweenEyes, Iy, PupilSize);
 
-  } else if (eye_value === 2 && eye_type ===2){
+  } else if (eye_value == 2 && eye_type ==2){
 
      // whites of eyes
      push();
@@ -126,7 +126,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
      ellipse(4.5, 0, 2);
      pop();
 
-  } else if (eye_value === 2 && eye_type ===3){
+  } else if (eye_value == 2 && eye_type ==3){
 
     push();
     translate(0,-1);
@@ -142,7 +142,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
 
   }
 
-  if (eye_value === 3 && eye_type ===1){
+  if (eye_value == 3 && eye_type ==1){
 
     // middle eye
     fill(white);
@@ -172,7 +172,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
       ellipse(centerX+DistanceBetweenEyes, Iy+2, PupilSize);
 
 
-  } else if (eye_value ===3 && eye_type === 2){
+  } else if (eye_value ==3 && eye_type == 2){
 
      //whites of eyes
      push();
@@ -195,7 +195,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
      pop();
      ellipse(4.5,0,2);
      pop();
-  } else if (eye_value ===3 && eye_type ===3){
+  } else if (eye_value ==3 && eye_type ==3){
 
     push();
     translate(0,-1);
@@ -225,7 +225,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
 
   // mouth
 
-  if (mouth_type === 1){
+  if (mouth_type == 1){
 
    fill(appleTopLipColour);
 
@@ -247,7 +247,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
    endShape(CLOSE);
 
    line(5,3,-5,3);
-  }  else if (mouth_type ===2){
+  }  else if (mouth_type ==2){
     noFill();
       
     push();
@@ -255,7 +255,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
     stroke(black);
     curve(4,-3,2,5,-2,5,-4,-3);
     pop();
-  } else if (mouth_type === 3){
+  } else if (mouth_type == 3){
 
     push();
     angleMode(RADIANS);
@@ -274,17 +274,24 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
   
   //eyebrows
 
-  if (eyebrows_yesno ===2){
+  if (eyebrows_yesno ==2){
+    rectMode(CENTER);
 
-    rect(5, -5, 3, 4);
+    push();
+    angleMode(RADIANS);
+
+    fill(97, 47, 20);
+    arc(3, -6, eyebrow_length, eyebrow_height, PI, TWO_PI);
+    arc(-3,-6, eyebrow_length, eyebrow_height, PI, TWO_PI);
+    pop();
   }
-
+pop()
  
 }
 
 
-function Grapes( tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_yesno) {
-
+function Grapes( tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_yesno,eyebrow_height,eyebrow_length) {
+push()
   let eyeSize = 4;
   let PupilSize = int(eyeSize/1.5);
   let centerX = 0;
@@ -395,7 +402,7 @@ function Grapes( tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_
 
  
   //eyes 
-  if (eye_value === 1 && eye_type === 2){ //the grapes will have 1 eye
+  if (eye_value == 1 && eye_type == 2){ //the grapes will have 1 eye
 
     //whites of eye
     push();
@@ -409,7 +416,7 @@ function Grapes( tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_
     ellipse(0,0,2);
     pop();
 
-  } else if (eye_value ===1 && eye_type ===1){
+  } else if (eye_value ==1 && eye_type ==1){
 
     push();
     translate(0,2);
@@ -424,7 +431,7 @@ function Grapes( tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_
 
     pop();
 
-  } else if (eye_value ===1 && eye_type ===3){
+  } else if (eye_value ==1 && eye_type ==3){
     noStroke();
     fill(white);
     ellipse(0,-2,2.5,5);
@@ -433,7 +440,7 @@ function Grapes( tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_
     ellipse(0,-2,1.5,3);
   }
 
-  if(eye_value === 2 && eye_type ===2){ // the grapes will have 2 eyes
+  if(eye_value == 2 && eye_type ==2){ // the grapes will have 2 eyes
 
     // whites of eyes
     push();
@@ -448,7 +455,7 @@ function Grapes( tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_
     ellipse(-4.5,0,2);
     ellipse(4.5, 0, 2);
     pop();
-  } else if (eye_value ===2 && eye_type ===1){
+  } else if (eye_value ==2 && eye_type ==1){
     push();
     translate(0,2);
     fill(white);
@@ -467,7 +474,7 @@ function Grapes( tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_
     ellipse(centerX-DistanceBetweenEyes, Iy, PupilSize);
     ellipse(centerX+DistanceBetweenEyes, Iy, PupilSize);
     pop();
-  } else if (eye_value ===2 && eye_type ===3){
+  } else if (eye_value ==2 && eye_type ==3){
 
     
     
@@ -482,7 +489,7 @@ function Grapes( tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_
     
   }
 
-if(eye_value ===3 && eye_type ===2){ // the grapes will have 3 eyes
+if(eye_value ==3 && eye_type ==2){ // the grapes will have 3 eyes
 
     //whites of eyes
     push();
@@ -499,7 +506,7 @@ if(eye_value ===3 && eye_type ===2){ // the grapes will have 3 eyes
     ellipse(0,0,2);
     ellipse(4.5,0,2);
     pop();
-  } else if (eye_value ===3 && eye_type ===1){
+  } else if (eye_value ==3 && eye_type ==1){
     
  // middle eye
  fill(white);
@@ -530,7 +537,7 @@ if(eye_value ===3 && eye_type ===2){ // the grapes will have 3 eyes
   
 
 
-  } else if (eye_value === 3 && eye_type ===3){
+  } else if (eye_value == 3 && eye_type ==3){
   
     noStroke();
     fill(white);
@@ -555,13 +562,13 @@ if(eye_value ===3 && eye_type ===2){ // the grapes will have 3 eyes
   }
 
 
-  if (mouth_type === 2){
+  if (mouth_type == 2){
     noFill();
     
     stroke(black);
     curve(4,-3,2,5,-2,5,-4,-3);
 
-  } else if (mouth_type === 1){
+  } else if (mouth_type == 1){
     push();
     translate(0,4.5);
     scale(0.7);
@@ -589,7 +596,7 @@ if(eye_value ===3 && eye_type ===2){ // the grapes will have 3 eyes
     pop();
    
   
-  } else if (mouth_type ===3){
+  } else if (mouth_type ==3){
     push();
     angleMode(RADIANS);
     rectMode(CENTER);
@@ -606,21 +613,21 @@ rect(-1,6,1,1);
   
   }
 
-  if (nose_type ===1){ // clown nose
+  if (nose_type ==1){ // clown nose
 
     noStroke();
     fill(138, 3, 3);
     ellipse(0,3.5,3);
 
 
-  } else if (nose_type === 2){ // basic line triangle nose
+  } else if (nose_type == 2){ // basic line triangle nose
 
     strokeWeight(0.5);
     stroke(black);
     line (0, 2, 1, 4);
     line (1,4,0,4);
 
-  } else if (nose_type === 3){ // piggy nose
+  } else if (nose_type == 3){ // piggy nose
 
     noStroke();
     push();
@@ -635,9 +642,23 @@ rect(-1,6,1,1);
 
 }
 
+if (eyebrows_yesno ==2){
+  noStroke();
+  rectMode(CENTER);
+
+  push();
+  angleMode(RADIANS);
+
+  fill(black);
+  arc(3, -4, eyebrow_length, eyebrow_height, PI, TWO_PI);
+  arc(-3,-4, eyebrow_length, eyebrow_height, PI, TWO_PI);
+  pop();
+}
+pop()
 }
 
-function Pear(tilt_value, eye_value, eye_type,mouth_type,nose_type,eyebrows_yesno) {
+function Pear(tilt_value, eye_value, eye_type,mouth_type,nose_type,eyebrows_yesno,eyebrow_height,eyebrow_length) {
+push()
   let eyeSize = 4;
   let PupilSize = int(eyeSize/1.5);
   let centerX = 0;
@@ -663,7 +684,7 @@ function Pear(tilt_value, eye_value, eye_type,mouth_type,nose_type,eyebrows_yesn
   vertex(0, -10);
   endShape(CLOSE);
 
-  if (nose_type ===1){ // clown nose
+  if (nose_type ==1){ // clown nose
 
     push();
     translate(0,-1);
@@ -673,14 +694,14 @@ function Pear(tilt_value, eye_value, eye_type,mouth_type,nose_type,eyebrows_yesn
     pop();
 
 
-  } else if (nose_type === 2){ // basic line triangle nose
+  } else if (nose_type == 2){ // basic line triangle nose
 
     strokeWeight(0.5);
     stroke(black);
     line (0, 2, 1, 4);
     line (1,4,0,4);
 
-  } else if (nose_type === 3){ // piggy nose
+  } else if (nose_type == 3){ // piggy nose
 
     push();
     translate(0,-1);
@@ -700,7 +721,7 @@ function Pear(tilt_value, eye_value, eye_type,mouth_type,nose_type,eyebrows_yesn
 }
 
 noStroke();
-if (eye_value ===1 && eye_type ===3){ // pear will have 1 eye
+if (eye_value ==1 && eye_type ==3){ // pear will have 1 eye
 
   noStroke();
   fill(white);
@@ -709,7 +730,7 @@ if (eye_value ===1 && eye_type ===3){ // pear will have 1 eye
   fill(black);
   ellipse(0,-2,1.5,3);
   
-}else if (eye_value === 1 && eye_type ===1 ) { // originally apple eyes, short and wide
+}else if (eye_value == 1 && eye_type ==1 ) { // originally apple eyes, short and wide
   
   noStroke();
   fill(white);
@@ -721,7 +742,7 @@ if (eye_value ===1 && eye_type ===3){ // pear will have 1 eye
   fill(white);
   ellipse(centerX,Iy-1,PupilSize);  
 
-} else if (eye_value === 1 && eye_type ===2){ // originally grape eyes, small and round
+} else if (eye_value == 1 && eye_type ==2){ // originally grape eyes, small and round
  noStroke();
   //whites of eye
   push();
@@ -741,7 +762,7 @@ if (eye_value ===1 && eye_type ===3){ // pear will have 1 eye
 
  }
 
-if(eye_value >=2 && eye_type ===3){ // pear will have 2 eyes
+if(eye_value >=2 && eye_type ==3){ // pear will have 2 eyes
   noStroke();
   fill(white);
   ellipse(-2,-2,2.5,5);
@@ -750,7 +771,7 @@ if(eye_value >=2 && eye_type ===3){ // pear will have 2 eyes
   fill(black);
   ellipse(-2,-2,1.5,3);
   ellipse(2,-2,1.5,3);
-} else if (eye_value === 2 && eye_type ===1) {
+} else if (eye_value == 2 && eye_type ==1) {
 
   fill(white);
   // eye shape
@@ -768,7 +789,7 @@ if(eye_value >=2 && eye_type ===3){ // pear will have 2 eyes
   ellipse(centerX-DistanceBetweenEyes, Iy, PupilSize);
   ellipse(centerX+DistanceBetweenEyes, Iy, PupilSize);
 
-} else if (eye_value === 2 && eye_type ===2){
+} else if (eye_value == 2 && eye_type ==2){
 
    // whites of eyes
    push();
@@ -786,7 +807,7 @@ if(eye_value >=2 && eye_type ===3){ // pear will have 2 eyes
 
 }
 
-if (mouth_type === 3){
+if (mouth_type == 3){
 
   push();
   angleMode(RADIANS);
@@ -800,7 +821,7 @@ rect(1,6,1,1);
 rect(-1,6,1,1);
 pop();
 
-} else if (mouth_type ===1){
+} else if (mouth_type ==1){
 
   push();
   translate(0,4.5);
@@ -827,7 +848,7 @@ pop();
   line(5,3,-5,3);
 
   pop();
-} else if (mouth_type ===2){
+} else if (mouth_type ==2){
   noFill();
     
   stroke(black);
@@ -837,7 +858,21 @@ pop();
 
 }
 
+// eyebrows
 
+if (eyebrows_yesno ==2){
+  noStroke();
+  rectMode(CENTER);
+
+  push();
+  angleMode(RADIANS);
+
+  fill(97, 47, 20);
+  arc(3, -4, eyebrow_length, eyebrow_height, PI, TWO_PI);
+  arc(-3,-4, eyebrow_length, eyebrow_height, PI, TWO_PI);
+  pop();
+}
+pop()
 
 
 }

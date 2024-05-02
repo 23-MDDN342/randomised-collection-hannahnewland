@@ -26,7 +26,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [0]
+const bg_color1 = [71, 222, 219]
 
 function mouseClicked() {
   changeRandomSeed();
@@ -54,21 +54,19 @@ function draw () {
       if (i == 0) {
         // center face
         let eye_value = 2;
-        let mouth_type = 2;
         let tilt_value = random(-45, 45);
+        let mouth_value = random(1, 3);
         let is_cyclops = random(0, 100);
         if(is_cyclops < 10) {
           eye_value = 1;
           tilt_value = random(-5, 5);
-         
+          mouth_value = random(5, 10);
         }
         push();
         translate(x, y);
         scale(w/25, h/25);
-        Apple(tilt_value, eye_value, mouth_type);
+        Apple(tilt_value, eye_value, mouth_value);
         pop();
-
-        
       }
       else if (i > 0) {
         // all other faces
@@ -76,9 +74,7 @@ function draw () {
         translate(x, y);
         scale(w/25, h/25);
         if((i+j)%2 == 0) {
-         let eye_value = 2;
-         let mouth_type = 2;
-          Grapes(eye_value,mouth_type);
+          Banana();
         }
         else {
           thinness_value = random(0, 100);

@@ -90,23 +90,23 @@ function draw () {
    let nose_type = int(map( s5, 0, 100, 1, 4));
   let eye_value = int(map(s3, 0, 100, 1, 3));
   let eye_type = int(map(s2, 0, 100, 1,4));
-  let eyebrows_yesno = int(map(s6, 0, 100, 0,2));
-  //let eyebrow_height = map(s7, 0, 100, )
+  let eyebrows_yesno = int(map(s6, 0, 100, 1,3));
+  let eyebrow_height = map(s7, 0, 100, 0 , 6 );
+  let eyebrow_length = map(s8, 0, 100, 0, 7);
 
 
   push();
   if (mode == '1') {
-   
- Apple(tilt_value, eye_value,mouth_type, eye_type,eyebrows_yesno);
- // Grapes(tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_yesno);
-  //Pear(tilt_value, eye_value, eye_type,mouth_type,nose_type,eyebrows_yesno);
+    Apple(tilt_value, eye_value,mouth_type, eye_type,eyebrows_yesno,eyebrow_height,eyebrow_length);
+  
   }
-
   if (mode == '2') {
-     Pear(tilt_value, eye_value, eye_type,mouth_type,nose_type,eyebrows_yesno);
+     Pear(tilt_value, eye_value, eye_type,mouth_type,nose_type,eyebrows_yesno,eyebrow_height,eyebrow_length);
   }
   if (mode == '3') {
-    Grapes(tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_yesno);
+
+    randomSeed(3);
+    Grapes(tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_yesno,eyebrow_height,eyebrow_length);
   }
 
   pop();
