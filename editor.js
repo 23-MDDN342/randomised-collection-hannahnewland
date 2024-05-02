@@ -59,12 +59,12 @@ function draw () {
 
   background(bg_color);
 
-  let s1 = slider1.value(); 
+  let s1 = slider1.value(); //tilt value
   let s2 = slider2.value(); // type of eyes
   let s3 = slider3.value(); // number of eyes
   let s4 = slider4.value(); // type of mouth
   let s5 = slider5.value(); // type of nose 
-  let s6 = slider6.value();
+  let s6 = slider6.value(); // eyebrows, yes/no
   let s7 = slider7.value();
   let s8 = slider8.value();
   let s9 = slider9.value();
@@ -82,27 +82,29 @@ function draw () {
   translate(face_x, face_y);
   scale(face_scale);
 
-  push();
-  if (mode == '1') {
-   // draw face using values mapped from 3 sliders
-   let tilt_value = map(s1, 0, 100, -90, 90);
+
+  // value indications
+
+  let tilt_value = map(s1, 0, 100, -90, 90);
    let mouth_type = int(map(s4, 0, 100, 1,4));
    let nose_type = int(map( s5, 0, 100, 1, 4));
   let eye_value = int(map(s3, 0, 100, 1, 3));
   let eye_type = int(map(s2, 0, 100, 1,4));
-  Apple(tilt_value, eye_value,mouth_type, nose_type);
-  //Grapes(eye_value, eye_type,mouth_type, nose_type);
+  let eyebrows_yesno = int(map(s6, 0, 100, 1,2));
+
+  push();
+  if (mode == '1') {
+   
+ Apple(tilt_value, eye_value,mouth_type, eye_type,eyebrows_yesno);
+ // Grapes(tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_yesno);
+  //Pear(tilt_value, eye_value, eye_type,mouth_type,nose_type,eyebrows_yesno);
   }
 
   if (mode == '2') {
-     // let slider value 1 indicate thinness
-     Pear(s1);
+     Pear(tilt_value, eye_value, eye_type,mouth_type,nose_type,eyebrows_yesno);
   }
   if (mode == '3') {
-     eye_value = int(map(s3, 0, 100, 1, 3));
-     eye_type = int(map(s2, 0, 100, 1,4));
-     mouth_type = int(map(s4, 0, 100, 1,4));
-    Grapes(eye_value, eye_type,mouth_type);
+    Grapes(tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_yesno);
   }
 
   pop();
