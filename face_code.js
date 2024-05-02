@@ -272,6 +272,12 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno) {
   
   }
   
+  //eyebrows
+
+  if (eyebrows_yesno ===2){
+
+    rect(5, -5, 3, 4);
+  }
 
  
 }

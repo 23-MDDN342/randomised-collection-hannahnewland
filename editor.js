@@ -65,8 +65,8 @@ function draw () {
   let s4 = slider4.value(); // type of mouth
   let s5 = slider5.value(); // type of nose 
   let s6 = slider6.value(); // eyebrows, yes/no
-  let s7 = slider7.value();
-  let s8 = slider8.value();
+  let s7 = slider7.value(); // eyebrow height
+  let s8 = slider8.value(); // eyebrow length
   let s9 = slider9.value();
   let s10 = slider10.value();
 
@@ -90,7 +90,9 @@ function draw () {
    let nose_type = int(map( s5, 0, 100, 1, 4));
   let eye_value = int(map(s3, 0, 100, 1, 3));
   let eye_type = int(map(s2, 0, 100, 1,4));
-  let eyebrows_yesno = int(map(s6, 0, 100, 1,2));
+  let eyebrows_yesno = int(map(s6, 0, 100, 0,2));
+  //let eyebrow_height = map(s7, 0, 100, )
+
 
   push();
   if (mode == '1') {
