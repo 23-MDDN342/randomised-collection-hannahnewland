@@ -4,7 +4,7 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
-const bg_color = [0];
+const bg_color = [39, 42, 46];
 let slider1, slider2, slider3, slider4, slider5;
 let slider6, slider7, slider8, slider9, slider10;
 let faceSelector;
@@ -25,8 +25,8 @@ function setup () {
   slider6 = createSlider(0, 100, 50);
   slider7 = createSlider(0, 100, 50);
   slider8 = createSlider(0, 100, 50);
-  slider9 = createSlider(0, 100, 50);
-  slider10 = createSlider(0, 100, 50);
+  slider9 = createSlider(0, 100, 50); // not in use
+  slider10 = createSlider(0, 100, 50); // not in use
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -36,8 +36,8 @@ function setup () {
   slider6.parent('slider6Container');
   slider7.parent('slider7Container');
   slider8.parent('slider8Container');
-  slider9.parent('slider9Container');
-  slider10.parent('slider10Container');
+  slider9.parent('slider9Container'); // not in use
+  slider10.parent('slider10Container'); // not in use
 
   faceGuideCheckbox = createCheckbox('', false);
   faceGuideCheckbox.parent('checkbox1Container');
@@ -57,7 +57,7 @@ function draw () {
 
   let mode = faceSelector.value();
 
-  background(bg_color);
+  background(39, 42, 46);
 
   let s1 = slider1.value(); //tilt value
   let s2 = slider2.value(); // type of eyes
@@ -67,8 +67,7 @@ function draw () {
   let s6 = slider6.value(); // eyebrows, yes/no
   let s7 = slider7.value(); // eyebrow height
   let s8 = slider8.value(); // eyebrow length
-  let s9 = slider9.value();
-  let s10 = slider10.value();
+  
 
   let show_face_guide = faceGuideCheckbox.checked();
 

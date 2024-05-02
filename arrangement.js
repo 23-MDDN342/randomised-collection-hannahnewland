@@ -48,7 +48,7 @@ function draw () {
   randomSeed(curRandomSeed);
 
   // clear screen
-  background(0);
+  background(39, 42, 46);
  
 
         let mouth_type = int(random(1,4));
