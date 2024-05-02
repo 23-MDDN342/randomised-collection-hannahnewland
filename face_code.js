@@ -1,27 +1,18 @@
-/*
- * This file should contain code that draws your faces.
- *
- * Each function takes parameters and draws a face that is within
- * the bounding box (-10, -10) to (10, 10).
- *
- * These functions are used by your final arrangement of faces as well as the face editor.
- */
 
-
-/*
- * tilt_value is in degrees
- */
-
+// Constants that appear in all functions. 
 const white = [255, 255, 255];
 const black = [0, 0, 0];
-const appleColour = [217, 2, 2];
-const appleTopLipColour = [143, 1, 1];
-const appleBottomLipColour = [252, 3, 32];
-const stemColour = [52,88,57];
+const appleColour = [217, 2, 2]; // the red of the apple
+const appleTopLipColour = [143, 1, 1]; // the red of the top lip of the apple's original mouth.
+const appleBottomLipColour = [252, 3, 32]; // the red of the bottom lip of the apple's original mouth. 
+const stemColour = [52,88,57]; // the stem colour of all the fruit.  
 
 
+// The function that draws the apple. 
 function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebrow_height, eyebrow_length) {
  push()
+
+ // variables that are related to the apple's original eyes.
   let eyeSize = 4;
   let PupilSize = int(eyeSize/1.5);
   let centerX = 0;
@@ -33,13 +24,13 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebro
   angleMode(DEGREES);
   rotate(tilt_value);
 
- // apple
+ // drawing the apple shape
   noStroke();
   fill(appleColour);
   ellipse(centerX-2.5, 0, 10,15);
   ellipse(centerX+2.5, 0, 10,15);
 
-  //stem
+  //drawing the stem
   fill(stemColour);
   beginShape();
   vertex(0, -6);
@@ -47,7 +38,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebro
   vertex(0, -9.5);
   endShape(CLOSE);
 
-  // one eye
+  // when the apple has one eye:
   if (eye_value == 1 && eye_type ==1 ) { // originally apple eyes, short and wide
   
     fill(white);
@@ -91,8 +82,8 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebro
     pop();
    }
 
- // two eyes
-  if (eye_value == 2 && eye_type ==1) {
+ // when the apple has two eyes:
+  if (eye_value == 2 && eye_type ==1) { // orignially apple eyes
 
     fill(white);
     // eye shape
@@ -110,7 +101,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebro
     ellipse(centerX-DistanceBetweenEyes, Iy, PupilSize);
     ellipse(centerX+DistanceBetweenEyes, Iy, PupilSize);
 
-  } else if (eye_value == 2 && eye_type ==2){
+  } else if (eye_value == 2 && eye_type ==2){ // originally grape eyes
 
      // whites of eyes
      push();
@@ -126,7 +117,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebro
      ellipse(4.5, 0, 2);
      pop();
 
-  } else if (eye_value == 2 && eye_type ==3){
+  } else if (eye_value == 2 && eye_type ==3){ // originally pear eyes
 
     push();
     translate(0,-1);
@@ -142,7 +133,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebro
 
   }
 
-  if (eye_value == 3 && eye_type ==1){
+  if (eye_value == 3 && eye_type ==1){ // originally apple eyes
 
     // middle eye
     fill(white);
@@ -172,7 +163,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebro
       ellipse(centerX+DistanceBetweenEyes, Iy+2, PupilSize);
 
 
-  } else if (eye_value ==3 && eye_type == 2){
+  } else if (eye_value ==3 && eye_type == 2){ // originally grape eyes
 
      //whites of eyes
      push();
@@ -195,7 +186,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebro
      pop();
      ellipse(4.5,0,2);
      pop();
-  } else if (eye_value ==3 && eye_type ==3){
+  } else if (eye_value ==3 && eye_type ==3){ // originally pear eyes
 
     push();
     translate(0,-1);
@@ -225,7 +216,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebro
 
   // mouth
 
-  if (mouth_type == 1){
+  if (mouth_type == 1){ // original apple mouth, big red lips
 
    fill(appleTopLipColour);
 
@@ -247,7 +238,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebro
    endShape(CLOSE);
 
    line(5,3,-5,3);
-  }  else if (mouth_type ==2){
+  }  else if (mouth_type ==2){ // original grape mouth, simple black smile
     noFill();
       
     push();
@@ -255,7 +246,7 @@ function Apple(tilt_value, eye_value, mouth_type, eye_type,eyebrows_yesno,eyebro
     stroke(black);
     curve(4,-3,2,5,-2,5,-4,-3);
     pop();
-  } else if (mouth_type == 3){
+  } else if (mouth_type == 3){ // original pear mouth, toothy mouth open 
 
     push();
     angleMode(RADIANS);
@@ -289,9 +280,11 @@ pop()
  
 }
 
-
+// the function that draws the grapes.
 function Grapes( tilt_value, eye_value, eye_type,mouth_type, nose_type,eyebrows_yesno,eyebrow_height,eyebrow_length) {
 push()
+
+ // apple eye variables
   let eyeSize = 4;
   let PupilSize = int(eyeSize/1.5);
   let centerX = 0;
@@ -311,7 +304,7 @@ push()
   rotate(tilt_value);
 
  
-
+// array of grape colours
   let grapeColours = [grapeColour1, grapeColour2,grapeColour3,grapeColour4,grapeColour5]; // these colours will be randomised with each grape so they all are different colours
   ellipseMode(CENTER);
   rectMode(CENTER);
@@ -657,8 +650,11 @@ if (eyebrows_yesno ==2){
 pop()
 }
 
+//the function that draws the pear.
 function Pear(tilt_value, eye_value, eye_type,mouth_type,nose_type,eyebrows_yesno,eyebrow_height,eyebrow_length) {
 push()
+
+// apple eye variables
   let eyeSize = 4;
   let PupilSize = int(eyeSize/1.5);
   let centerX = 0;
